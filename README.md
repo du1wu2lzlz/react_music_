@@ -11,6 +11,11 @@ React全家桶 + ant + webpack4 + axios
   默认端口 3030
 + 调用方式:
   例如: http://localhost:3000/top/list?idx=6
+  
+本项目构建:
+  git clone https://github.com/du1wu2lzlz/react_music_.git
+  yarn install 
+  yarn start(默认8080端口)
 ```
 ## 初探react 
 + JSX: JavaScript对象
