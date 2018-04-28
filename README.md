@@ -1,5 +1,7 @@
 ## 技术栈
-React全家桶 + ant + webpack4
+React全家桶 + ant + webpack4 + axios  
+API [https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=neteasecloudmusicapi]
+
 
 + JSX: JavaScript对象
 ```js
