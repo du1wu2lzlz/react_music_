@@ -1,0 +1,75 @@
+import React from 'react';
+import ReactDOM from 'react-dom'; 
+import {
+   Layout,
+   Menu,
+   Breadcrumb,
+   Icon,
+   Input,
+   Dropdown,
+   message,
+   Row,
+   Col  
+} from 'antd';
+const {Header,Content,Footer,Sider} = Layout;
+const Search = Input.Search;
+
+const menu = (
+    <Menu onClick={onClick} >
+      <Menu.Item key="7">手机号登陆</Menu.Item>
+      <Menu.Item key="8">新浪微博登陆</Menu.Item>
+      <Menu.Item key="9">微信登陆</Menu.Item>
+    </Menu>
+);
+
+const onClick = function ({ key }) {
+   console.log(`Click on item ${key}`);
+  };
+
+class PCHeader extends React.Component{
+    constructor(){
+        super();
+    }
+
+    // componentWil
+
+    render(){
+        let dropDownStyle = {
+            padding: '0 0 px 0' 
+        }
+        // onClick = () =>{
+        //     console.log('111');
+        // }
+        return (
+            <div>
+                <Header className="header">
+                    <div className="main_area">
+                        <div className="logo"></div>
+                        <Row    style={{background: '#001529'}} >
+                            <Col span = {14}>
+                                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} style={{lineHeight: '64px'}}>
+                                    <Menu.Item key="1">发现音乐</Menu.Item>
+                                    <Menu.Item key="2">我的音乐</Menu.Item>
+                                    <Menu.Item key="3">朋友</Menu.Item>
+                                    <Menu.Item key="4">商城</Menu.Item>
+                                    <Menu.Item key="5">音乐人</Menu.Item>
+                                    <Menu.Item key="6">下载客户端</Menu.Item>
+                                    
+                                </Menu>
+                            </Col>
+                            <Col span = {8} >
+                                <Search placeholder="音乐/视频/电台/用户" onSearch={value => console.log(value)} style={{ width: 200 }} />
+                                <Dropdown overlay={menu} >
+                                   <a className="ant-dropdown-link" href="#"style={{ paddingLeft:'25px'}}>登陆客户端<Icon type="down" /></a>
+                                </Dropdown>
+                            </Col>
+                        </Row>
+                    </div>
+                </Header>
+               
+            </div>
+        )
+    }
+}
+
+export default PCHeader = PCHeader;
