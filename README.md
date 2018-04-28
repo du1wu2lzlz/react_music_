@@ -1,8 +1,17 @@
 ## 技术栈
+```
 React全家桶 + ant + webpack4 + axios
-     
-API [https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=neteasecloudmusicapi]  
 
++ 本项目 借助 https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=neteasecloudmusicapi 提供的api
++ 工作原理 : 利用 跨站请求伪造 (CSRF), 伪造请求头 , 调用官方 API
++ 使用方式:
+  git clone git@github.com:Binaryify/NeteaseCloudMusicApi.git
+  npm install
+  node app.js
+  默认端口 3030
++ 调用方式:
+  例如: http://localhost:3000/top/list?idx=6
+```
 ## 初探react 
 + JSX: JavaScript对象
 ```js
