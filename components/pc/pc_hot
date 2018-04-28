@@ -1,0 +1,75 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {
+    Layout,Tag ,
+    Menu,
+    Breadcrumb,
+    Icon,
+    Input,
+    Dropdown,
+    message,
+    Row,
+    Col,  
+    Divider
+ } from 'antd';
+import axios from 'axios'
+
+class PCHot extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            title: '',
+            tag  : [],
+            signature : ''
+        }
+    }
+    
+    getHotMusic(){
+        let _this = this;
+        axios.get('http://localhost:3000/top/list?idx=6',{}).then(function(response){
+            if(response.status == 200){
+                let res =response.data;
+                console.log(res);
+                _this.setState({
+                    nickname : res.playlist.creator.nickname || '',
+                    tag   : res.playlist.tags || [],
+                    signature : res.playlist.creator.signature || '',
+                    coverImgUrl : res.playlist.coverImgUrl || ''
+                })
+            }
+        }).catch(function(error){
+            console.log(error)
+        })
+    }
+    
+    componentDidMount(){
+        this.getHotMusic();
+    }
+
+    render(){
+        return(
+            <div className = 'hot'>
+                <Row className ="hot_title">
+                    <Col xs={12} style={{textAlign:'center'}}>热门推荐</Col>
+                    <Col xs={12}> 
+                    {this.state.tag.map(function(tag,index){
+                       return (
+                        <Tag key={index}>{tag}</Tag> 
+                       )
+                    })}
+                    </Col>
+                </Row>
+                <Row className ="hot_content">
+                    <div className ="hot_coverImgUrl" > <img src={this.state.coverImgUrl} style={{height:'140px'}}/></div>
+                    <Col >{this.state.nickname}</Col>
+                    <Col >
+                     更新时间:{this.state.signature}
+                    </Col>
+                    
+                </Row>
+            </div>
+        )
+    }
+}
+
+export default PCHot = PCHot
