@@ -1,6 +1,7 @@
 ## 技术栈
 ```
-React全家桶 + ant + webpack4 + axios
+React全家桶 + ant + webpack4 + axios  
+Redux 待添加
 
 + 本项目 借助 https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=neteasecloudmusicapi 提供的api
 + 工作原理 : 利用 跨站请求伪造 (CSRF), 伪造请求头 , 调用官方 API
