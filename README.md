@@ -1,6 +1,6 @@
 ## 技术栈
 ```
-React全家桶 + ant + webpack4 + axios  
+React全家桶(react-router v4 ) + ant + webpack4 + axios  
 Redux 待添加
 
 + 本项目 借助 https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=neteasecloudmusicapi 提供的api
@@ -44,4 +44,76 @@ Redux 待添加
    setState 方法由父类 Component 所提供。
    当我们调用这个函数的时候，React.js 会更新组件的状态 state 
    并且重新调用 render 方法，然后再把 render 方法所渲染的最新的内容显示到页面上。
+8. state作用域
+   属于当前类，不污染其他模块
 ```
++ 组件
+```js
+  1. 为了使得组件的可定制性更强，在使用组件的时候，可以在标签上加属性来传入配置参数。
+  2. 组件可以在内部通过 this.props 获取到配置参数，组件可以根据 props 的不同来确定自己的显示形态，达到可配置的效果。
+  3. 可以通过给组件添加类属性 defaultProps 来配置默认参数。
+  4. props 一旦传入，你就不可以在组件内部对它进行修改。但是你可以通过父组件主动重新渲染的方式来传入新的 props，从而达到更新的效果
+  5. 子组件向父组件传参，在子组件中通过调用父组件传递过来的事件props进行组件间的参数传递(数据和事件的双向绑定)
+    ```js
+    父组件:
+    class PCContent extends React.Component{
+        constructor(){
+            super()
+            this.state= {
+                data:[],
+                userinfo: '初始值'
+            }
+        }
+
+        changeUserInfo(event){
+        this.setState({
+            userinfo: event.target.value
+          })
+        }
+
+        render(){
+          return(
+             <div className="main_area">
+                    <Row >
+                       <Col span={16} >
+                         <PCRecommend  changeUserInfo={this.changeUserInfo.bind(this)}/>  //ES6语法 关于this指向
+                         <p>{this.state.userinfo}</p>
+                       </Col>
+                       <Col  span={8} >
+                         <PCHot/>
+                       </Col>
+                    </Row>
+                </div>
+          )
+        }
+    }
+
+    子组件:
+    class PCRecommend extends  React.Component{
+        constructor(props){
+            super(props);
+            this.state = {
+              list : []
+            }
+        }
+        render(){
+          return(
+            <div>
+                <input type="button" value="每日推荐" onClick={this.getDailyRecommend.bind(this)}/>
+                <input type="text"  onChange={this.props.changeUserInfo}/>
+            </div>
+          )
+        }
+    }
+    ```
+  6. 组件的Refs 
+     Refs是访问到组件内部DOM节点唯一可靠的方法
+     不要在render或render之前对Refs进行调用
+     Refs会自动销毁对子组件的引用
+```
++ 路由
+
+```js
+
+```
+
