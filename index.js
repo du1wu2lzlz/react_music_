@@ -9,33 +9,24 @@ import {
 } from 'react-router-dom';
 
 import MediaQuery from 'react-responsive';
-import PCMain from './components/pc/pc_main';
+import MyRoute from './routers/myRoute';
 import MobileMain from './components/mobile/mobile_main';
+import PCList from './components/pc/pc_list';
 
 import style from "./css/main.css";
 import 'antd/dist/antd.css';
-import axios from 'axios';
+
 
 export default class App extends React.Component{
   render(){
     return (
-      <div>
-        <MediaQuery query='(min-device-width: 1224px)'>
+        <div>
             <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" component={PCMain}></Route>
-              </Switch>
+               <MyRoute></MyRoute>
             </BrowserRouter>
-        </MediaQuery>
-
-        <MediaQuery query='(max-device-width: 1224px)'>
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" component={MobileMain}></Route>
-                </Switch>
-            </BrowserRouter>
-        </MediaQuery>
-      </div>
+        </div>
+        
+      
     )
   }
 }
