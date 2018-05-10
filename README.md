@@ -1,7 +1,8 @@
 ## 技术栈
 ```
 React全家桶(react-router v4 ) + ant + webpack4 + axios  
-Redux 待添加(太难了) 改为[MobX](https://mobx.js.org/)
+Redux 待添加(太难了) 改为[MobX](https://mobx.js.org/)  
+https://qiutc.me/post/efficient-mobx.html  
 
 + 本项目 借助 https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=neteasecloudmusicapi 提供的api
 + 工作原理 : 利用 跨站请求伪造 (CSRF), 伪造请求头 , 调用官方 API
